@@ -1,5 +1,5 @@
 # dokku-uro-deploy
-## Instructions for uro test deployment
+## Guide for uro test deployment
 
 This is a test deployment for uro server. It runs Dokku in a docker container ([Container Guide](https://dokku.com/docs/getting-started/install/docker/)).
 
