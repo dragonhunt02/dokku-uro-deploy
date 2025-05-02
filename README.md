@@ -81,6 +81,7 @@ If you are using local Dokku container, server should be served on `localhost:80
 Add this line to **hosts** file
 ```
 127.0.0.1 vsekai.local
+127.0.0.1 dokku.local
 ```
 
 **Linux**
@@ -88,6 +89,9 @@ Add this line to **hosts** file
 Run
 ```
 sudo bash -c 'echo "127.0.0.1 vsekai.local" >> /etc/hosts'
+sudo bash -c 'echo "127.0.0.1 dokku.local" >> /etc/hosts'
 ```
 
 You can preview website at http://vsekai.local:8080 and https://vsekai.local:8443
+
+Current http/https proxy is traefik, you can test it at http://uroapp.dokku.local
