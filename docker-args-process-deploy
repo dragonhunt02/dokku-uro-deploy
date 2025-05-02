@@ -10,6 +10,8 @@ PLUGIN_EXEC_CMD="plugn trigger"
 # Traefik labels setup. Plugin is required to prevent Dokku overwrite.
 if [ "$APP" = "uroapp" ]; then
     echo ' --label "traefik.http.routers.uroapp-web-http.rule=Host(\`uroapp.dokku.local\`) && PathPrefix(\`/api/v1\`)"';
+    echo ' --label "traefik.http.routers.uroapp-web-http.middlewares=strip-api-prefix@docker"';
+    echo ' --label "traefik.http.middlewares.strip-api-prefix.stripPrefix.prefixes=/api/v1"';
 fi
 if [ "$APP" = "nodeapp" ]; then
     echo ' --label "traefik.http.routers.nodeapp-web-http.rule=Host(\`uroapp.dokku.local\`) && PathPrefix(\`/\`)"';
