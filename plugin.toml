@@ -2,5 +2,5 @@
 name = "dokku-uro-deploy"
 version = "0.1.0"
 description = "Uro traefik setup plugin"
-website_url = "https://github.com/dragonhunt02/dokku-uro-deploy"
+website_url = "https://github.com/"
 [plugin.config]
