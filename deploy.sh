@@ -42,7 +42,7 @@ dokku postgres:create database -p vsekai || true;
 dokku postgres:link database uroapp --no-restart;
 dokku postgres:restart database;
 
-dokku redis:create redisdb;
+dokku redis:create redisdb || true;
 dokku redis:link redisdb uroapp --no-restart;
 dokku redis:restart redisdb;
 
