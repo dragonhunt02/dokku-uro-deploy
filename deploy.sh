@@ -11,6 +11,7 @@ dokku traefik:start;
 # Install plugins
 dokku plugin:install https://github.com/dokku/dokku-postgres.git --name postgres;
 dokku plugin:install https://github.com/dokku/dokku-redis.git --name redis;
+dokku plugin:install https://github.com/dragonhunt02/dokku-uro-deploy.git
 
 # Setup backend env
 SETUP='ROOT_ORIGIN=https://vsekai.local
@@ -49,6 +50,9 @@ dokku redis:restart redisdb;
 dokku apps:create nodeapp;
 dokku builder:set nodeapp build-dir frontend;
 dokku docker-options:add nodeapp build "--build-arg uro_image=dokku/uroapp";
+
+# Required for traefik
+dokku domains:add nodeapp uroapp.dokku.local
 
 # Setup frontend env
 SETUP2='NEXT_PUBLIC_ORIGIN=https://vsekai.local
