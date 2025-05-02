@@ -7,7 +7,12 @@ APP="$1";
 PLUGIN_DIR=$(dirname $0)
 PLUGIN_EXEC_CMD="plugn trigger"
 
-# Traefik labels setup. Plugin is required to prevent Dokku overwrite.
+# Traefik labels setup. Plugin is needed for 'PathPrefix' routing.
+
+# DO NOT change plugin repo name or name in plugin.toml.
+# Current plugin starts with 'u' (uro-deploy) so it runs after Dokku internal traefik ('t') plugin.
+# This is required to avoid overwrite of custom container labels.
+
 if [ "$APP" = "uroapp" ]; then
     echo ' --label "traefik.http.routers.uroapp-web-http.rule=Host(\`uroapp.dokku.local\`) && PathPrefix(\`/api/v1\`)"';
     echo ' --label "traefik.http.routers.uroapp-web-http.middlewares=strip-api-prefix@docker"';
