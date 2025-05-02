@@ -3,6 +3,11 @@ set -e;
 
 echo "Deploy setup started!";
 
+# Start traefik
+dokku proxy:set --global traefik;
+dokku nginx:stop;
+dokku traefik:start;
+
 # Install plugins
 dokku plugin:install https://github.com/dokku/dokku-postgres.git --name postgres;
 dokku plugin:install https://github.com/dokku/dokku-redis.git --name redis;
@@ -31,7 +36,8 @@ dokku apps:create uroapp;
 dokku config:set uroapp $SETUP;
 
 # Setup databases (:link will override database url environment variables)
-export POSTGRES_CUSTOM_ENV="USER=vsekai;" && dokku postgres:create database -p vsekai;
+export POSTGRES_CUSTOM_ENV="USER=vsekai;"
+dokku postgres:create database -p vsekai || true;
 dokku postgres:link database uroapp --no-restart;
 dokku postgres:restart database;
 
