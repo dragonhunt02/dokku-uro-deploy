@@ -17,6 +17,7 @@ dokku config:set --global URO_ROOT_URL="${ROOT_URL}"
 
 # (Optional) Enable traefik dashboard. You must set a password for security.
 # dokku traefik:set --global dashboard-enabled true
+# dokku traefik:set --global api-enabled true
 # dokku traefik:set --global basic-auth-username username
 # dokku traefik:set --global basic-auth-password password
 
