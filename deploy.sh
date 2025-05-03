@@ -3,6 +3,20 @@ set -e;
 
 echo "Deploy setup started!";
 
+# (Optional) Setup letsencrypt email for SSL
+# dokku traefik:set --global letsencrypt-email automated@example.com
+
+# (Optional) Use letsencrypt staging server instead
+# dokku traefik:set --global letsencrypt-server https://acme-staging-v02.api.letsencrypt.org/directory
+
+# (Optional) Enable traefik dashboard. You must set a password for security.
+# dokku traefik:set --global dashboard-enabled true
+# dokku traefik:set --global basic-auth-username username
+# dokku traefik:set --global basic-auth-password password
+
+# (Optional) Set traefik dashboard hostname
+# dokku traefik:set --global api-vhost traefik.dokku.local
+
 # Start traefik
 dokku proxy:set --global traefik;
 dokku nginx:stop;
