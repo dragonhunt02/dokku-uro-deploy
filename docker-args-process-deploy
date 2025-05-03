@@ -16,7 +16,7 @@ PLUGIN_EXEC_CMD="plugn trigger"
 # fallback
 uro_root_url="vsekai.local"
 
-uro_root_env=$(config_get --global URO_ROOT_URL)"
+uro_root_env="$(config_get --global URO_ROOT_URL)"
 [[ -n "${uro_root_env}" ]] && uro_root_url="${uro_root_env}"
 
 if [ "$APP" = "uroapp" ]; then
