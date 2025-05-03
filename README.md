@@ -41,12 +41,12 @@ You can run commands below in a local dokku container or through ssh on target c
 
 ## Setup Dokku git ssh
 ### Add public key to dokku
-Local Container
+_Local Container_
 ```
 DOKKU_PUB_KEY=$( cat ~/.ssh/dokku.pub )
 docker exec -it dokku bash -c "echo \"$DOKKU_PUB_KEY\" | dokku ssh-keys:add DOKKU_KEYNAME"
 ```
-SSH
+_SSH_
 ```
 DOKKU_PUB_KEY=$( cat ~/.ssh/dokku.pub )
 ssh user@host bash -c "echo \"$DOKKU_PUB_KEY\" | dokku ssh-keys:add DOKKU_KEYNAME"
@@ -57,11 +57,11 @@ Environment variables can be changed in `deploy.sh`
 
 You can point `ROOT_URL` to a domain where production website will be hosted. If changed, ensure `git` ssh hostname is set to same domain).
 
-Local Container
+_Local Container_
 ```
 docker exec -i dokku bash < "deploy.sh"
 ```
-SSH
+_SSH_
 ```
 ssh user@host bash < "deploy.sh"
 ```
