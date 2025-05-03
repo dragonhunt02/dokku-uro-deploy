@@ -55,6 +55,8 @@ ssh user@host bash -c "echo \"$DOKKU_PUB_KEY\" | dokku ssh-keys:add DOKKU_KEYNAM
 ## Dokku deploy setup
 Environment variables can be changed in `deploy.sh`
 
+You can point `ROOT_URL` to a domain where production website will be hosted. If changed, ensure `git` ssh hostname is set to same domain).
+
 Local Container
 ```
 docker exec -i dokku bash < "deploy.sh"
