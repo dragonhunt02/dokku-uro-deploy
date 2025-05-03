@@ -11,7 +11,7 @@ services:
       - "/var/lib/dokku:/mnt/dokku"
       - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
-      DOKKU_HOSTNAME: dokku.local
+      DOKKU_HOSTNAME: vsekai.local
       DOKKU_HOST_ROOT: /var/lib/dokku/home/dokku
       DOKKU_LIB_HOST_ROOT: /var/lib/dokku/var/lib/dokku
     restart: unless-stopped
