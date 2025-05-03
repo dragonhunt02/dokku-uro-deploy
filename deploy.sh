@@ -20,7 +20,7 @@ dokku config:set --global URO_ROOT_URL="${ROOT_URL}"
 # dokku traefik:set --global basic-auth-username username
 # dokku traefik:set --global basic-auth-password password
 
-# (Optional) Set traefik dashboard hostname
+# (Optional) Set traefik dashboard hostname. Dashboard is available at http://traefik.vsekai.local/dashboard/
 # dokku traefik:set --global api-vhost traefik.vsekai.local
 
 # Start traefik
