@@ -23,7 +23,7 @@ ssh-keygen -t rsa -b 4096 -C "example@example.com" -P "" -f ~/.ssh/dokku
 git clone https://github.com/V-Sekai/uro.git
 
 # Setup git ssh user
-echo 'Host dokku.local
+echo 'Host vsekai.local
   HostName 127.0.0.1
   Port 3022
   User git
@@ -31,8 +31,8 @@ echo 'Host dokku.local
 
 # Add remote
 cd uro
-git remote add dokku dokku@dokku.local:uroapp
-git remote add dokku2 dokku@dokku.local:nodeapp
+git remote add dokku dokku@vsekai.local:uroapp
+git remote add dokku2 dokku@vsekai.local:nodeapp
 ```
 
 Before deploy, you need to setup plugins and environment variables
@@ -81,8 +81,6 @@ If you are using local Dokku container, server should be served on `localhost:80
 Add this line to **hosts** file
 ```
 127.0.0.1 vsekai.local
-127.0.0.1 dokku.local
-127.0.0.1 uroapp.dokku.local
 ```
 
 **Linux**
@@ -90,10 +88,8 @@ Add this line to **hosts** file
 Run
 ```
 sudo bash -c 'echo "127.0.0.1 vsekai.local" >> /etc/hosts'
-sudo bash -c 'echo "127.0.0.1 dokku.local" >> /etc/hosts'
-sudo bash -c 'echo "127.0.0.1 uroapp.dokku.local" >> /etc/hosts'
 ```
 
 You can preview website at http://vsekai.local:8080 and https://vsekai.local:8443
 
-Current http/https proxy is traefik, you can test it at http://uroapp.dokku.local
+Current http/https proxy is traefik, you can test it at http://vsekai.local:80
