@@ -7,6 +7,8 @@ ROOT_URL="vsekai.local"
 echo "Deploy setup started!";
 echo "Domain: ${ROOT_URL}"
 
+dokku config:set --global URO_ROOT_URL=${ROOT_URL}
+
 # (Optional) Setup letsencrypt email for SSL
 # dokku traefik:set --global letsencrypt-email automated@example.com
 
