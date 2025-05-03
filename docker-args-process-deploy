@@ -14,18 +14,16 @@ PLUGIN_EXEC_CMD="plugn trigger"
 # This is required to avoid overwrite of custom container labels.
 
 # fallback
-local root_url="vsekai.local"
+uro_root_url="vsekai.local"
 
-local uro_root_url=$(config_get --global URO_ROOT_URL)"
-[[ -n "${uro_root_url}" ]] && root_url="${uro_root_url}"
-
-root_url
+uro_root_env=$(config_get --global URO_ROOT_URL)"
+[[ -n "${uro_root_env}" ]] && uro_root_url="${uro_root_env}"
 
 if [ "$APP" = "uroapp" ]; then
-    echo ' --label "traefik.http.routers.uroapp-web-http.rule=Host(\`'${root_url}'\`) && PathPrefix(\`/api/v1\`)"';
+    echo ' --label "traefik.http.routers.uroapp-web-http.rule=Host(\`'${uro_root_url}'\`) && PathPrefix(\`/api/v1\`)"';
     echo ' --label "traefik.http.routers.uroapp-web-http.middlewares=strip-api-prefix@docker"';
     echo ' --label "traefik.http.middlewares.strip-api-prefix.stripPrefix.prefixes=/api/v1"';
 fi
 if [ "$APP" = "nodeapp" ]; then
-    echo ' --label "traefik.http.routers.nodeapp-web-http.rule=Host(\`'${root_url}'\`) && PathPrefix(\`/\`)"';
+    echo ' --label "traefik.http.routers.nodeapp-web-http.rule=Host(\`'${uro_root_url}'\`) && PathPrefix(\`/\`)"';
 fi
