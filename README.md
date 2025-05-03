@@ -82,6 +82,7 @@ Add this line to **hosts** file
 ```
 127.0.0.1 vsekai.local
 127.0.0.1 dokku.local
+127.0.0.1 uroapp.dokku.local
 ```
 
 **Linux**
@@ -90,6 +91,7 @@ Run
 ```
 sudo bash -c 'echo "127.0.0.1 vsekai.local" >> /etc/hosts'
 sudo bash -c 'echo "127.0.0.1 dokku.local" >> /etc/hosts'
+sudo bash -c 'echo "127.0.0.1 uroapp.dokku.local" >> /etc/hosts'
 ```
 
 You can preview website at http://vsekai.local:8080 and https://vsekai.local:8443
